@@ -1,0 +1,455 @@
+/* --- Estilos Generales --- */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* --- Estilos del Encabezado --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%; /* Usa porcentaje para que sea más adaptable */
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil debajo del header */
+    position: sticky; /* Fija el header al hacer scroll */
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container img {
+    max-height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 600; /* Un poco más grueso */
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #005a2b; /* Color institucional al pasar el mouse */
+}
+
+
+/* --- Contenido Principal --- */
+main {
+    max-width: 1200px;
+    margin: 40px auto; /* Centra el contenido y le da espacio arriba/abajo */
+    padding: 20px;
+}
+
+#revistas h2 {
+    text-align: center;
+    font-size: 1.8em;
+    text-transform: uppercase; /* Pone el texto en mayúsculas */
+    color: #555;
+    margin-bottom: 50px;
+    letter-spacing: 2px; /* Espacio entre letras */
+}
+
+/* --- Contenedor y Tarjetas de Revistas --- */
+.contenedor-revistas {
+    display: grid;
+    /* Crea 4 columnas en pantallas grandes, 2 en tablets y 1 en móviles */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; /* Espacio entre las tarjetas */
+}
+
+.revista-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: inherit; /* Hereda el color del texto normal */
+    overflow: hidden; /* Asegura que la imagen no se salga de los bordes */
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.revista-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.revista-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.revista-card .card-content {
+    padding: 20px;
+}
+
+.revista-card h3 {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+/* --- Estilos del Pie de Página --- */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    padding: 30px;
+    color: #777;
+    background-color: #f9f9f9;
+}
+
+/* --- 4. Estilos de la Sección Informativa Adicional --- */
+#info-adicional {
+    padding: 60px 20px; /* Espacio arriba y abajo */
+    background-color: #f9f9f9; /* Un fondo muy sutil para diferenciarla */
+}
+
+.info-introduccion {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto; /* Centra el bloque y añade espacio debajo */
+}
+
+.info-introduccion h2 {
+    font-size: 1.8em;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.info-introduccion p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+.info-card {
+    display: flex; /* ¡La clave para poner los elementos lado a lado! */
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; 
+}
+
+.info-texto {
+    flex-basis: 55%; /* El texto ocupa el 55% del ancho */
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+}
+
+.info-texto h3 {
+    font-size: 2.2em;
+    color: #27702b; /* Un color vino/púrpura similar al del ejemplo */
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.info-texto p {
+    font-size: 1em;
+    line-height: 1.7;
+    color: #555;
+}
+
+.info-imagen-contenedor {
+    flex-basis: 45%; /* La imagen ocupa el 45% */
+    text-align: center; /* Centra el botón */
+}
+
+.info-imagen-contenedor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin deformarse */
+    display: block;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.info-boton {
+    display: inline-block;
+    background-color: #27702b; /* Mismo color que el título */
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: -25px auto 20px; /* Margen negativo para que se superponga a la imagen */
+    position: relative;
+    z-index: 2;
+    transition: background-color 0.3s;
+}
+
+.info-boton:hover {
+    background-color: #13cc66; /* Un tono más oscuro al pasar el mouse */
+}
+
+/* --- 5. Estilos de la Sección de Convocatorias --- */
+#convocatorias {
+    padding-bottom: 60px;
+}
+
+.banner-convocatoria {
+    background-color: #4a5759; /* Un color oscuro, sobrio. Puedes cambiarlo. */
+    /* Opcional: si quieres usar una imagen de fondo sutil como en el ejemplo */
+    /* background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('URL_IMAGEN_FONDO_SUTIL'); */
+    /* background-size: cover; */
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.banner-convocatoria h2 {
+    margin: 0;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.banner-convocatoria p {
+    margin: 10px 0 0 0;
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.card-convocatoria {
+    max-width: 950px;
+    margin: -80px auto 0 auto; /* El margen superior negativo crea el efecto de superposición */
+    position: relative; /* Importante para que se coloque sobre el flujo normal */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    padding: 40px;
+    text-align: center;
+}
+
+.card-convocatoria img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.card-convocatoria h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-top: 0;
+}
+
+.card-convocatoria p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+    max-width: 800px;
+    margin: 20px auto; /* Centra el párrafo si es más angosto que la tarjeta */
+}
+
+.boton-ver-mas {
+    display: inline-block;
+    background-color: #4a5759; /* Mismo color que el banner para consistencia */
+    color: white;
+    padding: 12px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.boton-ver-mas:hover {
+    background-color: #333d3f; /* Tono más oscuro al pasar el mouse */
+}
+
+/* --- 6. Estilos del Pie de Página Detallado --- */
+.site-footer {
+    background-color: #ffffff; /* Fondo blanco para la parte principal */
+    color: #555;
+    font-size: 15px;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.footer-column {
+    padding: 0 20px;
+    border-right: 1px dotted #ccc; /* Línea punteada entre columnas */
+}
+
+.footer-column:last-child {
+    border-right: none; /* La última columna no lleva línea */
+}
+
+.footer-logo {
+    max-width: 180px;
+}
+
+.footer-column h4 {
+    font-size: 1em;
+    color: #27702b; /* Color vino/púrpura del ejemplo */
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.footer-column i {
+    color: #27702b; /* Color vino para los iconos */
+    margin-right: 15px;
+    margin-top: 4px;
+    width: 20px; /* Ancho fijo para que el texto se alinee */
+    text-align: center;
+}
+
+.footer-column p {
+    line-height: 1.7;
+}
+
+/* --- Sub-Footer (Copyright y Redes Sociales) --- */
+.footer-bottom {
+    background-color: #f5f5f5; /* Fondo gris claro */
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid #e0e0e0;
+}
+
+.copyright {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: #e0e0e0;
+    border-radius: 50%; /* Círculos en lugar de cuadrados */
+    color: #555;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #006837; /* Verde institucional al pasar el mouse */
+    color: white;
+}
+
+/* --- Estilos del Carrusel (Hero) --- */
+#hero {
+    position: relative; /* Esencial para posicionar los elementos internos */
+    height: 70vh; /* Altura del 70% de la ventana */
+    width: 100%;
+    overflow: hidden; /* Oculta cualquier cosa que se salga */
+}
+
+.slides-container {
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute; /* Pone todas las diapositivas en el mismo lugar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Por defecto, todas las diapositivas son invisibles */
+    transition: opacity 1.5s ease-in-out; /* La magia del efecto de desvanecimiento */
+}
+
+.slide.active {
+    opacity: 1; /* La diapositiva activa se hace visible */
+}
+
+/* Oscurecemos un poco la imagen para que el texto sea más legible */
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-text {
+    position: relative; /* Para que se ponga encima de la capa oscura */
+    color: white;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-text h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.hero-text p {
+    font-size: 1.3em;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.dots-container {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active, .dot:hover {
+    background-color: white;
+}
