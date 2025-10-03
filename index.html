@@ -84,34 +84,80 @@
     <!-- 3. Sección de Revistas -->
     <main>
         <section id="revistas">
-            <h2>Nuestras Revistas Científicas</h2>
+        <div class="revistas-layout-container">
+        
+        <!-- COLUMNA IZQUIERDA: Título Fijo -->
+        <div class="columna-izquierda-fija">
+            <h2>NUESTRAS REVISTAS CIENTÍFICAS</h2>
+        </div>
+
+        <!-- COLUMNA DERECHA: Contenido Dinámico -->
+        <div class="columna-derecha-contenido">
+            
+            <div class="contenido-derecha-header">
+                <p>La Revista Científica de la Universidad Agraria es el principal órgano de divulgación para investigaciones originales que contribuyen al avance de las ciencias agrarias, ambientales y pecuarias en la región.</p>
+                <a href="https://elmisionerodelagro.com.ec/index.php/ema/about/submissions" class="boton-enviar-articulo">
+                    <i class="fa-solid fa-paper-plane"></i> Enviar Artículo
+                </a>
+            </div>
+
             <div class="contenedor-revistas">
-                <!-- Tarjetas de revistas (sin cambios aquí) -->
-                <a href="https://elmisionerodelagro.com.ec/index.php/ema" class="revista-card">
-                    <img src="img/misionero.png" alt="Portada de la Revista 1">
+                
+                <!-- Tarjeta 1 -->
+                <a href="https://elmisionerodelagro.com.ec/index.php/ema/index" class="revista-card">
+                    <div class="card-imagen-contenedor">
+                        <img src="img/misionero.png" alt="Portada de la Revista 1">
+                        <div class="card-overlay">
+                            <i class="fa-solid fa-link"></i>
+                        </div>
+                    </div>
                     <div class="card-content">
                         <h3>El Misionero del Agro</h3>
                     </div>
-                </a>
+                </a> <!-- <-- ¡AQUÍ CIERRA LA TARJETA 1! -->
+
+                <!-- Tarjeta 2 -->
                 <a href="https://elmisionerodelagro.com.ec/index.php/vet/index" class="revista-card">
-                    <img src="img/med.png" alt="Portada de la Revista 2">
+                    <div class="card-imagen-contenedor">
+                        <img src="img/med.png" alt="Portada de la Revista 2">
+                        <div class="card-overlay">
+                            <i class="fa-solid fa-link"></i>
+                        </div>
+                    </div>
                     <div class="card-content">
                         <h3>Revista de Medicina Veterinaria y Zoología</h3>
                     </div>
-                </a>
+                </a> <!-- <-- ¡AQUÍ CIERRA LA TARJETA 2! -->
+
+                <!-- Tarjeta 3 -->
                 <a href="URL_DEL_OJS_DE_LA_REVISTA_3" class="revista-card">
-                    <img src="img/agroind.png" alt="Portada de la Revista 3">
-                    <div class="card-content">
-                        <h3>Revista de AgroIndustria</h3>
+                    <div class="card-imagen-contenedor">
+                        <img src="img/agroind.png" alt="Portada de la Revista 3">
+                        <div class="card-overlay">
+                            <i class="fa-solid fa-link"></i>
+                        </div>
                     </div>
-                </a>
+                    <div class="card-content">
+                        <h3>Revista de Agroindustria</h3>
+                    </div>
+                </a> <!-- <-- ¡AQUÍ CIERRA LA TARJETA 3! -->
+
+                <!-- Tarjeta 4 -->
                 <a href="URL_DEL_OJS_DE_LA_REVISTA_4" class="revista-card">
-                    <img src="img/comput.png" alt="Portada de la Revista 4">
+                    <div class="card-imagen-contenedor">
+                        <img src="img/comput.png" alt="Portada de la Revista 4">
+                        <div class="card-overlay">
+                            <i class="fa-solid fa-link"></i>
+                        </div>
+                    </div>
                     <div class="card-content">
                         <h3>Revista de Computación</h3>
                     </div>
-                </a>
+                </a> <!-- <-- ¡AQUÍ CIERRA LA TARJETA 4! -->
+
             </div>
+        </div>
+    </div>
         </section>
 
         <!-- 4. Sección Informativa (Contenido ajustado) -->
@@ -132,7 +178,7 @@
                     <!-- Es ideal una imagen de investigadores, un microscopio, o algo simbólico de la ciencia -->
                     <img src="img/istockphoto-1213724568-612x612.png" alt="Investigación en la universidad">
                     <!-- CAMBIO: Botón con un llamado a la acción relevante -->
-                    <a href="#" class="info-boton">CONOCE NUESTRAS POLÍTICAS</a>
+                    <a href="https://elmisionerodelagro.com.ec/index.php/ema/evaluacion-editorial" class="info-boton">CONOCE NUESTRAS POLÍTICAS</a>
                 </div>
             </div>
         </section>

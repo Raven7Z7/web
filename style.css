@@ -74,15 +74,16 @@ main {
 .revista-card {
     background-color: white;
     border: 1px solid #e0e0e0;
-    text-decoration: none; /* Quita el subrayado del enlace */
-    color: inherit; /* Hereda el color del texto normal */
-    overflow: hidden; /* Asegura que la imagen no se salga de los bordes */
-    transition: box-shadow 0.3s, transform 0.3s;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.3s;
+    display: flex;
+    flex-direction: column; /* Apila la imagen y el contenido verticalmente */
 }
 
 .revista-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    /* Quitamos el efecto de elevación para un look más plano */
 }
 
 .revista-card img {
@@ -90,10 +91,16 @@ main {
     height: 180px;
     object-fit: cover;
     display: block;
+    /* Quitamos el borde redondeado de la imagen */
 }
 
 .revista-card .card-content {
-    padding: 20px;
+    padding: 25px 20px;
+    text-align: center; /* Centramos el texto */
+    flex-grow: 1; /* Permite que todas las tarjetas tengan la misma altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .revista-card h3 {
@@ -205,7 +212,7 @@ footer {
 }
 
 .banner-convocatoria {
-    background-color: #4a5759; /* Un color oscuro, sobrio. Puedes cambiarlo. */
+    background-color: #27702b; /* Un color oscuro, sobrio. Puedes cambiarlo. */
     /* Opcional: si quieres usar una imagen de fondo sutil como en el ejemplo */
     /* background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('URL_IMAGEN_FONDO_SUTIL'); */
     /* background-size: cover; */
@@ -259,7 +266,7 @@ footer {
 
 .boton-ver-mas {
     display: inline-block;
-    background-color: #4a5759; /* Mismo color que el banner para consistencia */
+    background-color: #27702b; /* Mismo color que el banner para consistencia */
     color: white;
     padding: 12px 35px;
     text-decoration: none;
@@ -270,7 +277,7 @@ footer {
 }
 
 .boton-ver-mas:hover {
-    background-color: #333d3f; /* Tono más oscuro al pasar el mouse */
+    background-color: #2fa124; /* Tono más oscuro al pasar el mouse */
 }
 
 /* --- 6. Estilos del Pie de Página Detallado --- */
@@ -366,7 +373,7 @@ footer {
 }
 
 .social-icons a:hover {
-    background-color: #006837; /* Verde institucional al pasar el mouse */
+    background-color: #13cc66; /* Verde institucional al pasar el mouse */
     color: white;
 }
 
@@ -504,4 +511,258 @@ footer {
 /* LA MAGIA: Muestra el menú desplegable cuando se hace hover en el contenedor .dropdown */
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+/* --- Estilos para la cabecera de la sección de Revistas --- */
+
+/* Ajustes para el título y texto dentro de la cabecera */
+
+/* Estilo del nuevo botón */
+.boton-enviar-articulo {
+    display: inline-block;
+    background-color: #006837; /* Verde institucional */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.boton-enviar-articulo:hover {
+    background-color: #1fad5f; /* Un verde más oscuro */
+    transform: translateY(-2px); /* Un leve efecto de elevación */
+}
+
+.boton-enviar-articulo i {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+}
+
+/* --- Estilos para la sección de Revistas (Diseño 2 columnas) --- */
+#revistas {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+}
+
+.revistas-layout-container {
+   display: flex; /* La clave: pone sus dos hijos uno al lado del otro */
+    gap: 40px;
+}
+
+/* Columna Izquierda */
+.columna-izquierda-fija {
+    flex: 0 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.columna-izquierda-fija h2 {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    font-size: 2.2em;
+    text-transform: uppercase;
+    color: #444;
+    letter-spacing: 6px;
+    margin: 0;
+    padding-left: 10px; /* Espacio para la línea */
+}
+
+/* Columna Derecha */
+.columna-derecha-contenido {
+    flex: 1; /* Ocupa todo el espacio restante */
+    display: flex;
+    flex-direction: column; /* Apila el header y las tarjetas verticalmente */
+}
+
+.contenido-derecha-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.contenido-derecha-header p {
+    margin: 0;
+    line-height: 1.6;
+    color: #555;
+    flex: 1; /* Permite que el texto ocupe el espacio disponible */
+}
+
+/* El estilo del botón .boton-enviar-articulo que ya tenías debería funcionar bien aquí */
+/* Las reglas para .contenedor-revistas y .revista-card también se mantienen igual */
+
+/* --- MEJORA 1: Animación para el título de la sección de revistas --- */
+
+.columna-izquierda-fija h2 {
+    writing-mode: vertical-rl; /* Usamos rl, es un estándar más común */
+    text-orientation: mixed;
+    
+    /* ¡AÑADIMOS LA ROTACIÓN DE 180 GRADOS! */
+    transform: rotate(180deg);
+
+    font-size: 2.2em;
+    text-transform: uppercase;
+    color: #444;
+    letter-spacing: 6px;
+    margin: 0;
+    padding-right: 10px; /* Cambiamos el padding a la derecha */
+}
+
+/* --- MEJORA 2: Estilos para tarjetas de revista interactivas --- */
+
+/* Reemplaza la regla .revista-card img con esto */
+.revista-card .card-imagen-contenedor {
+    position: relative;
+    overflow: hidden; /* ¡Muy importante! Recorta la imagen cuando hace zoom */
+}
+
+.revista-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease; /* Transición suave para el zoom */
+}
+
+/* El efecto de zoom en la imagen al pasar el mouse por la tarjeta */
+.revista-card:hover img {
+    transform: scale(1.1); /* Agranda la imagen un 10% */
+}
+
+/* La capa semitransparente (inicialmente invisible) */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 104, 55, 0.7); /* Verde institucional semitransparente */
+    opacity: 0; /* Oculto por defecto */
+    transition: opacity 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* El ícono dentro de la capa (también invisible) */
+.card-overlay i {
+    color: white;
+    font-size: 2em;
+    transform: scale(0.8);
+    transition: transform 0.4s ease;
+}
+
+/* Hacemos visible la capa y el ícono al pasar el mouse */
+.revista-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.revista-card:hover .card-overlay i {
+    transform: scale(1); /* El ícono crece un poco */
+}
+
+/* Hacemos que el título cambie de color */
+.revista-card h3 {
+    transition: color 0.3s ease;
+}
+
+.revista-card:hover h3 {
+    color: #006837; /* Verde institucional */
+}
+
+/* --- MEJORA: Título Vertical y Sección Enmarcada --- */
+
+/* Reemplaza tu regla .columna-izquierda-fija con esta */
+.columna-izquierda-fija {
+    flex: 0 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Reemplaza tu regla .columna-izquierda-fija h2 con esta */
+.columna-izquierda-fija h2 {
+    writing-mode: vertical-rl; /* Usamos rl, es un estándar más común */
+    text-orientation: mixed;
+    
+    /* ¡AÑADIMOS LA ROTACIÓN DE 180 GRADOS! */
+    transform: rotate(180deg);
+
+    font-size: 2.2em;
+    text-transform: uppercase;
+    color: #444;
+    letter-spacing: 6px;
+    margin: 0;
+    padding-right: 10px; /* Cambiamos el padding a la derecha */
+}
+
+/* La línea vertical animada */
+.columna-izquierda-fija h2::before {
+    content: '';
+    position: absolute;
+    left: -20px; /* Posición a la izquierda del texto */
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #006837; /* Verde institucional */
+    transform-origin: top; /* La animación empieza desde arriba */
+    animation: draw-vertical-line 2s ease-out forwards;
+}
+
+@keyframes draw-vertical-line {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+}
+
+.columna-izquierda-fija::before {
+    content: '';
+    position: absolute;
+    right: 0; /* La posicionamos a la derecha del contenedor */
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #006837;
+    transform-origin: top;
+    animation: draw-vertical-line 2s ease-out forwards;
+}
+
+/* --- MEJORA: Animación de Texto para el Carrusel --- */
+
+/* 1. Definimos el estado inicial del texto ANTES de la animación.
+   Estará ligeramente desplazado hacia abajo y será invisible. */
+.hero-text h2, .hero-text p {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* 2. Definimos la animación con @keyframes.
+   La hemos llamado "fadeInUp". */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 3. Aplicamos la animación al texto SOLO cuando la diapositiva tiene la clase "active". */
+
+/* El H2 se animará primero */
+.slide.active .hero-text h2 {
+    /* animación: nombre duración función-de-tiempo retardo modo-de-relleno */
+    animation: fadeInUp 0.8s ease-out 0.5s forwards;
+}
+
+/* El P se animará un poco después para el efecto escalonado */
+.slide.active .hero-text p {
+    animation: fadeInUp 0.8s ease-out 0.8s forwards;
 }
