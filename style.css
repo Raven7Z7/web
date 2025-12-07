@@ -8,15 +8,24 @@ body {
 
 /* --- Estilos del Encabezado --- */
 header {
-    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%; /* Usa porcentaje para que sea más adaptable */
     background-color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil debajo del header */
     position: sticky; /* Fija el header al hacer scroll */
     top: 0;
     z-index: 1000;
+    width: 100%;
+}
+
+/* El contenido del header se centra */
+.header-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
 }
 
 .logo-container img {
@@ -61,37 +70,6 @@ main {
     color: #555;
     margin-bottom: 50px;
     letter-spacing: 2px; /* Espacio entre letras */
-}
-
-/* --- Contenedor y Tarjetas de Revistas --- */
-.contenedor-revistas {
-    display: grid;
-    /* Crea 4 columnas en pantallas grandes, 2 en tablets y 1 en móviles */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px; /* Espacio entre las tarjetas */
-}
-
-.revista-card {
-    background-color: white;
-    border: 1px solid #e0e0e0;
-    text-decoration: none;
-    color: inherit;
-    transition: box-shadow 0.3s;
-    display: flex;
-    flex-direction: column; /* Apila la imagen y el contenido verticalmente */
-}
-
-.revista-card:hover {
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    /* Quitamos el efecto de elevación para un look más plano */
-}
-
-.revista-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
-    /* Quitamos el borde redondeado de la imagen */
 }
 
 .revista-card .card-content {
@@ -617,68 +595,6 @@ footer {
     padding-right: 10px; /* Cambiamos el padding a la derecha */
 }
 
-/* --- MEJORA 2: Estilos para tarjetas de revista interactivas --- */
-
-/* Reemplaza la regla .revista-card img con esto */
-.revista-card .card-imagen-contenedor {
-    position: relative;
-    overflow: hidden; /* ¡Muy importante! Recorta la imagen cuando hace zoom */
-}
-
-.revista-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease; /* Transición suave para el zoom */
-}
-
-/* El efecto de zoom en la imagen al pasar el mouse por la tarjeta */
-.revista-card:hover img {
-    transform: scale(1.1); /* Agranda la imagen un 10% */
-}
-
-/* La capa semitransparente (inicialmente invisible) */
-.card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 104, 55, 0.7); /* Verde institucional semitransparente */
-    opacity: 0; /* Oculto por defecto */
-    transition: opacity 0.4s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* El ícono dentro de la capa (también invisible) */
-.card-overlay i {
-    color: white;
-    font-size: 2em;
-    transform: scale(0.8);
-    transition: transform 0.4s ease;
-}
-
-/* Hacemos visible la capa y el ícono al pasar el mouse */
-.revista-card:hover .card-overlay {
-    opacity: 1;
-}
-
-.revista-card:hover .card-overlay i {
-    transform: scale(1); /* El ícono crece un poco */
-}
-
-/* Hacemos que el título cambie de color */
-.revista-card h3 {
-    transition: color 0.3s ease;
-}
-
-.revista-card:hover h3 {
-    color: #006837; /* Verde institucional */
-}
-
 /* --- MEJORA: Título Vertical y Sección Enmarcada --- */
 
 /* Reemplaza tu regla .columna-izquierda-fija con esta */
@@ -765,4 +681,194 @@ footer {
 /* El P se animará un poco después para el efecto escalonado */
 .slide.active .hero-text p {
     animation: fadeInUp 0.8s ease-out 0.8s forwards;
+}
+
+/* --- ESTILOS CORREGIDOS PARA PÁGINA "INVESTIGACIÓN" (MENÚ HORIZONTAL) --- */
+
+/* Barra de título superior (sin cambios) */
+.page-title-bar {
+    background-color: #6c757d;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+.page-title-bar h1 {
+    font-size: 2.5em;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Contenedor principal de la página (sin cambios) */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Banner gráfico (sin cambios) */
+.graphic-banner {
+    margin-bottom: 40px;
+}
+.graphic-banner img { width: 100%; display: block; }
+.banner-caption {
+    background-color: #006837; /* Verde Institucional */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+}
+
+/* Layout de 2 columnas (sin cambios) */
+.two-column-layout {
+    display: flex;
+    gap: 40px;
+}
+
+/* Sidebar de navegación (izquierda) */
+.sidebar-nav {
+    flex: 0 0 280px;
+}
+.sidebar-nav h3 {
+    font-size: 1.2em;
+    color: #333;
+    border-bottom: 1px solid #e0e0e0; /* Borde más fino */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* --- ¡AQUÍ ESTÁ LA MAGIA! --- */
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* CAMBIO: Pone los elementos en fila */
+    flex-wrap: wrap; /* CAMBIO: Permite que los elementos bajen de línea si no caben */
+    gap: 15px 25px; /* CAMBIO: Espacio vertical y horizontal entre enlaces */
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 5px 0; /* CAMBIO: Ajustamos el padding para el nuevo layout */
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    border-bottom: none; /* CAMBIO: Eliminamos el borde inferior de cada enlace */
+    transition: color 0.3s;
+}
+.sidebar-nav a:hover {
+    background-color: transparent; /* CAMBIO: Eliminamos el fondo al pasar el mouse */
+    color: #006837; /* CAMBIO: Solo cambia el color del texto */
+}
+.sidebar-nav a.active {
+    color: #006837;
+    font-weight: bold;
+}
+.sidebar-nav a span {
+    font-size: 1.2em; /* CAMBIO: Ajustamos el tamaño de la flecha */
+    color: #ccc;
+    margin-left: 5px; /* Pequeño espacio para la flecha */
+}
+
+/* Contenido principal (derecha) */
+.main-article-content {
+    flex: 1;
+}
+/* ... El resto de los estilos (Contactos, Métricas, etc.) se mantienen igual ... */
+
+/* --- ESTILOS COMPLETOS PARA LAS TARJETAS DE REVISTA (DISEÑO 2+1 INTERACTIVO) --- */
+
+/* Contenedor principal de las tarjetas (mantiene el Grid) */
+.contenedor-revistas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* Estilo base de la tarjeta */
+.revista-card {
+    border: 1px solid #e0e0e0;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+/* Contenedor de la imagen para el efecto de zoom */
+.card-imagen-contenedor {
+    position: relative;
+    overflow: hidden; /* ¡Crucial para que la imagen no se salga al hacer zoom! */
+}
+
+/* La imagen */
+.revista-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease; /* Transición suave para el zoom */
+}
+
+/* La capa verde semitransparente (oculta por defecto) */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 104, 55, 0.7); /* Verde institucional semitransparente */
+    opacity: 0; /* Oculto */
+    transition: opacity 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* El ícono de enlace (oculto por defecto) */
+.card-overlay i {
+    color: white;
+    font-size: 2em;
+    transform: scale(0.8);
+    transition: transform 0.4s ease;
+}
+
+/* Contenido de la tarjeta */
+.card-content {
+    padding: 25px 20px;
+    text-align: center;
+    flex-grow: 1; /* Ayuda a mantener la altura consistente */
+}
+
+.revista-card h3 {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* --- ¡AQUÍ SUCEDE LA MAGIA DEL HOVER! --- */
+
+/* Al pasar el mouse por la tarjeta... */
+.revista-card:hover img {
+    transform: scale(1.1); /* ...la imagen hace zoom. */
+}
+
+.revista-card:hover .card-overlay {
+    opacity: 1; /* ...la capa verde aparece. */
+}
+
+.revista-card:hover .card-overlay i {
+    transform: scale(1); /* ...el ícono se agranda un poco. */
+}
+
+.revista-card:hover h3 {
+    color: #006837; /* ...el título cambia a verde. */
+}
+
+/* Posicionamiento de la tercera tarjeta (sin cambios) */
+#revista-economia {
+    grid-column: 1 / 3;
+    justify-self: center;
+    width: calc(50% - 15px);
 }

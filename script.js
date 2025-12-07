@@ -45,3 +45,56 @@ window.onload = function() {
     // Inicia el carrusel automático
     slideInterval = setInterval(showSlides, 5000); // Cambia de imagen cada 5 segundos
 }
+
+// --- SMOOTH SCROLL PARA EL MENÚ LATERAL ---
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleccionamos todos los enlaces del menú lateral
+    const menuLinks = document.querySelectorAll('.menu-lateral a');
+
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevenimos el salto brusco
+
+            const targetId = this.getAttribute('href'); // Obtenemos el ID (ej: '#mision')
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth', // La magia del desplazamiento suave
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+
+// --- LÓGICA PARA LAS PESTAÑAS (TABS) DE LA PÁGINA "SOBRE EL PORTAL" ---
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Solo ejecuta este código si estamos en la página correcta
+    const tabContainer = document.querySelector('.contenido-dos-columnas');
+    if (tabContainer) {
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // Evita que la página salte
+
+                // 1. Quita la clase 'active' de todos los enlaces y contenido
+                tabLinks.forEach(item => item.classList.remove('active'));
+                tabContents.forEach(item => item.classList.remove('active-content'));
+
+                // 2. Añade la clase 'active' al enlace clickeado
+                this.classList.add('active');
+
+                // 3. Muestra el contenido correspondiente
+                const targetId = this.getAttribute('href');
+                const targetContent = document.querySelector(targetId);
+                if (targetContent) {
+                    targetContent.classList.add('active-content');
+                }
+            });
+        });
+    }
+});
